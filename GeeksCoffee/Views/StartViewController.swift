@@ -7,9 +7,10 @@
 
 import UIKit
 
+//MARK: - StartViewController
 class StartViewController: UIViewController {
-
-    // MARK: - Properties
+    
+    //MARK: - Private Property
     private lazy var titleStackView: UIStackView = {
         let view = UIStackView()
         view.axis = .vertical
@@ -58,14 +59,30 @@ class StartViewController: UIViewController {
         return view
     }()
     
+    //MARK: - Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        setupView()
+    }
+    
+    // MARK: - Methods
+    
+}
+
+//MARK: - Setting Views
+private extension StartViewController {
+    func setupView() {
+        view.backgroundColor = .systemBackground
+        
+        addSubViews()
         setupLayout()
     }
+}
 
-    // MARK: - Methods
-    private func setupLayout() {
+//MARK: - Setting
+private extension StartViewController {
+    func addSubViews() {
         view.addSubview(titleStackView)
         titleStackView.addArrangedSubview(titleLabel)
         titleStackView.addArrangedSubview(titleNameLabel)
@@ -73,7 +90,12 @@ class StartViewController: UIViewController {
         view.addSubview(authButtonStackView)
         authButtonStackView.addArrangedSubview(signInButton)
         authButtonStackView.addArrangedSubview(signUpButton)
-        
+    }
+}
+
+//MARK: - Layout
+private extension StartViewController {
+    func setupLayout() {
         NSLayoutConstraint.activate([
             titleStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 200),
             titleStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),

@@ -9,7 +9,7 @@ import UIKit
 
 //MARK: - AuthViewController
 class AuthViewController: UIViewController {
-
+    
     //MARK: - Private Property
     private lazy var titleStackView: UIStackView = {
         let view = UIStackView()
@@ -47,7 +47,7 @@ class AuthViewController: UIViewController {
         let view = UILabel()
         view.text = "Entry"
         view.textColor = AppColors.darkBlue
-        view.font = .systemFont(ofSize: 34)
+        view.font = .systemFont(ofSize: 34, weight: .light)
         return view
     }()
     
@@ -69,8 +69,6 @@ class AuthViewController: UIViewController {
         view.leftViewMode = .always
         return view
     }()
-
-
     
     private lazy var signInButton: UIButton = {
         let view = UIButton(type: .system)
@@ -86,7 +84,7 @@ class AuthViewController: UIViewController {
         super.viewDidLoad()
         setupView()
     }
-
+    
     //MARK: - Methods
     
 }
